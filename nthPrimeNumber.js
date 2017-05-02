@@ -17,7 +17,7 @@ function nthPrimeNumber(n) {
 // Determine if a number is prime
 function isPrime(number) {
   if (number === 1) return false
-  // Iterate from 2 to sqare root of the number
+  // Iterate from 2 to square root of the number
   for (var i = 2; i <= Math.sqrt(number); i++) {
     // Return false if the number is divisible by the incrementing value
     if (number % i === 0) return false
