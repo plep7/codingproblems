@@ -164,25 +164,49 @@ BST.prototype.breadthFirstLog = function(callback) {
   // Set the current node
   var node;
   // Initiate an array for child nodes
-  var queue = [];
-  queue.push(this)
+  var queue = new Queue();
+  queue.enqueue(this)
   while (queue.length > 0) {
     // Dequeue the first node in the queue
-    node = queue.shift()
+    node = queue.dequeue()
     // Perform callback on current node
     callback(node)
     // Check if left node exists
     if (node.left) {
       // If so perform callback and push into child array
-      queue.push(node.left)
+      queue.enqueue(node.left)
     }
     // Check if right node exists
     if (node.right) {
       // If so perform callback and push into child array
-      queue.push(node.right)
+      queue.enqueue(node.right)
     }
   }
 };
+
+
+var Queue = function() {
+  this.storage = {};
+  this.startIndex = 0;
+  this.endIndex = 0;
+};
+
+Queue.prototype = { 
+  enqueue: function(value) {
+    this.storage[this.endIndex] = value;
+    this.endIndex++;
+  },
+  dequeue: function() {
+    var temp = this.storage[this.startIndex];
+    delete this.storage[this.startIndex];
+    this.startIndex++;
+    return temp;
+  },
+  size: function() {
+    return this.endIndex - this.startIndex >= 0 ? this.endIndex - this.startIndex : 0;
+  }
+};
+
 
 tree = new BST(6);
 tree.insert(3);

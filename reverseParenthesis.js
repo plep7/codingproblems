@@ -1,4 +1,3 @@
-
 function reverseParentheses(s) {
     var sArray = [], index = 0, reverseCounter = 0, result;
     // Iterate through the string
@@ -52,7 +51,3 @@ function reverseParentheses(s) {
     console.log('result', result)
     return result;
 }
-
-//reverseParentheses("Code(Cha(lle)nge)")
-reverseParentheses("The ((quick (brown) (fox) jumps over the lazy) dog)")
-// reverseParentheses("(quick (brown) (fox) jumps over the lazy) dog")
