@@ -6,5 +6,14 @@
 // arrayChange(inputArray) = 3.
 
 function arrayChange(inputArray) {
-
+  var sum = 0;
+  for (var i = 1; i < inputArray.length; i++) {
+    if (inputArray[i] <= inputArray[i - 1]) {
+      sum += inputArray[i - 1] - inputArray[i] + 1;
+      inputArray[i] += inputArray[i - 1] - inputArray[i] + 1;
+    }
+  }
+  return sum;
 }
+
+arrayChange([1,1,1])
