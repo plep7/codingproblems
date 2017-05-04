@@ -23,8 +23,19 @@
 // There is no first number.
 
 function isIPv4Address(inputString) {
+  var ipv4Array;
   // Split string into an array
+  ipv4Array = inputString.split('.');
   // Return false if array length is less than 4
-  // Return false if any element is not a number
-  // Return false greater than 255 or less than 0
+  if (ipv4Array.length !== 4) return false;
+  // Iterate through the array
+  for (var i = 0; i < ipv4Array.length; i++) {
+    if (ipv4Array[i].length === 0) return false;
+    currNum = Number(ipv4Array[i]);
+    // Return false if any element is not a number or greater than 255 or less than 0
+    if (Number.isNaN(currNum) || currNum > 255 || currNum < 0) return false;
+  }
+  return true;
 }
+
+isIPv4Address("1.1.1.1a")
