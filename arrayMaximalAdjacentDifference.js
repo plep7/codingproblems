@@ -6,5 +6,9 @@
 // arrayMaximalAdjacentDifference(inputArray) = 3.
 
 function arrayMaximalAdjacentDifference(inputArray) {
-
+  // Initialize maxDiff, currDiff
+  // Iterate through the array
+    // Compare current element with previous element
+    // If current element is bigger, difference is curr - prev, else prev - curr
+    // Iff currDiff is greater than maxDiff, set maxDiff to currDiff
 }
