@@ -7,8 +7,17 @@
 
 function arrayMaximalAdjacentDifference(inputArray) {
   // Initialize maxDiff, currDiff
+  var currDiff, maxDiff;
   // Iterate through the array
+  for (var i = 0; i < inputArray.length; i++) {
     // Compare current element with previous element
     // If current element is bigger, difference is curr - prev, else prev - curr
-    // Iff currDiff is greater than maxDiff, set maxDiff to currDiff
+    inputArray[i] > inputArray[i - 1] ? currDiff = inputArray[i] - inputArray[i - 1] : currDiff = inputArray[i - 1] - inputArray[i];
+    // If currDiff is greater than maxDiff, set maxDiff to currDiff
+    if (currDiff > maxDiff || !maxDiff) maxDiff = currDiff;
+  }
+  console.log(maxDiff)
+  return maxDiff;
 }
+
+arrayMaximalAdjacentDifference([2, 4, 1, 0])
