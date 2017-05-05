@@ -10,5 +10,14 @@
 // avoidObstacles(inputArray) = 4.
 
 function avoidObstacles(inputArray) {
-  
+  // Initialize smallestFactor, jumpSizeObj, jumpSize
+  // Sort the input array
+  // Iterate through the input array
+    // Start at element mod 2 and increase jumpSize until largest element is reached
+    // If the jumpSize applied to the element has a remainder
+      // Either create or increment the value in the jumpSizeObj
+  // Iterate through the jumpSizeObj
+    // If the value is equal to the inputArray length
+      // Compare and replace the key as the smallestFactor
+  // Return smallestFactor
 }
