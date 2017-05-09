@@ -34,7 +34,12 @@ const wordList = [
 
 
 function wordLadder(beginWord, endWord, wordList) {
-
+  // Initialize a queue of tuples and a currentWord
+  // Set the currentWord to the beginWord
+  // While there are still words in the queue
+    // Compare the currentWord to each word in the wordList
+    // If the words has at most 1 different letter, enqueue the word and current level
+    // If the endWord is reached, return the current level
 }
 
 console.log(wordLadder(beginWord, endWord, wordList));
