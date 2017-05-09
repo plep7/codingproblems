@@ -44,7 +44,7 @@ var wordList = ["hot",
 
 function wordLadder(beginWord, endWord, wordList) {
   // Initialize a queue of tuples and a currentWord
-  var queue = [], currentTuple, isConnection;
+  var queue = [], currentTuple, isConnection, added = [];
   // Set the currentTuple to the beginWord
   currentTuple = [beginWord, 1];
   if (!wordList.includes(endWord)) return 0;
@@ -62,13 +62,14 @@ function wordLadder(beginWord, endWord, wordList) {
       if (compareWords(currentTuple[0], wordList[i])) {
         isConnection = true;
         if (wordList[i] === endWord) {
-          return currentTuple[1] + 1
-        } else { 
+          return currentTuple[1] + 1;
+        } else if (!added.includes(wordList[i])) { 
+          added.push(wordList[i]);
           queue.push([wordList[i], currentTuple[1] + 1]);
         }
       }
     }
-    console.log(isConnection)
+    console.log(queue)
     if (!isConnection) return 0;
   }
 }
