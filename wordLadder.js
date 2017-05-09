@@ -32,14 +32,54 @@ const wordList = [
 
 // teach - peach - peace - place
 
+// var beginWord = "hit";
+// var endWord = "cog";
+// var wordList = ["hot", 
+//  "dot", 
+//  "dog", 
+//  "lot", 
+//  "log",
+//  "cog"]
+
 
 function wordLadder(beginWord, endWord, wordList) {
   // Initialize a queue of tuples and a currentWord
-  // Set the currentWord to the beginWord
+  var queue = [], currentTuple;
+  // Set the currentTuple to the beginWord
+  currentTuple = [beginWord, 1];
+
   // While there are still words in the queue
-    // Compare the currentWord to each word in the wordList
-    // If the words has at most 1 different letter, enqueue the word and current level
-    // If the endWord is reached, return the current level
+  while (queue.length > 0 || currentTuple[1] === 1) {
+    // Dequeue from the queue and set the current tuple
+    if (queue.length > 0) currentTuple = queue.shift();
+    // If the current word matches the end word, return the level
+    if (currentTuple[0] === endWord) return currentTuple[1];
+    // Compare the currentTuple to each word in the wordList
+    for (var i = 0; i < wordList.length; i++) {
+      // If the words has at most 1 different letter, enqueue the word and current level
+      if (compareWords(currentTuple[0], wordList[i])) {
+        if (wordList[i] === endWord) {
+          console.log(endWord)
+          return currentTuple[1] + 1
+        } else { 
+          queue.push([wordList[i], currentTuple[1] + 1]);
+        }
+      }
+    }
+    console.log(queue)
+  }
+}
+
+function compareWords(currentWord, wordFromList) {
+  // Initialize a counter
+  var counter = 0;
+  // Iterate through the strings
+  for (var i = 0; i < currentWord.length; i++) {
+    // If the letters aren't the same increment the counter
+    if (currentWord[i] !== wordFromList[i]) counter++;
+  }
+  // If counter is 1 return true else return false
+  return counter === 1
 }
 
 console.log(wordLadder(beginWord, endWord, wordList));
