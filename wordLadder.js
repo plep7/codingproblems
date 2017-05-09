@@ -86,4 +86,4 @@ function compareWords(currentWord, wordFromList) {
   return counter === 1
 }
 
-console.log(wordLadder(beginWord, endWord, wordList));
+console.log(wordLadder(beginWord, endWord, wordList) === 5);
