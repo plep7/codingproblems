@@ -13,43 +13,45 @@
 
 // The shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog" with a length of 5.
 
-const beginWord = "teach";
-const endWord = "place";
-const wordList = [
-  "peale",
-  "wilts",
-  "place",
-  "fetch",
-  "purer",
-  "pooch",
-  "peace",
-  "poach",
-  "berra",
-  "teach",
-  "rheum",
-  "peach"
-];
+// const beginWord = "teach";
+// const endWord = "place";
+// const wordList = [
+//   "peale",
+//   "wilts",
+//   // "place",
+//   "fetch",
+//   "purer",
+//   "pooch",
+//   "peace",
+//   "poach",
+//   "berra",
+//   "teach",
+//   "rheum",
+//   "peach"
+// ];
 
 // teach - peach - peace - place
 
-// var beginWord = "hit";
-// var endWord = "cog";
-// var wordList = ["hot", 
-//  "dot", 
-//  "dog", 
-//  "lot", 
-//  "log",
-//  "cog"]
+var beginWord = "hit";
+var endWord = "cog";
+var wordList = ["hot", 
+ "dot", 
+ "dog", 
+ "lot", 
+ "log", 
+ "cog"]
 
 
 function wordLadder(beginWord, endWord, wordList) {
   // Initialize a queue of tuples and a currentWord
-  var queue = [], currentTuple;
+  var queue = [], currentTuple, isConnection;
   // Set the currentTuple to the beginWord
   currentTuple = [beginWord, 1];
+  if (!wordList.includes(endWord)) return 0;
 
   // While there are still words in the queue
   while (queue.length > 0 || currentTuple[1] === 1) {
+    isConnection = false;
     // Dequeue from the queue and set the current tuple
     if (queue.length > 0) currentTuple = queue.shift();
     // If the current word matches the end word, return the level
@@ -58,15 +60,16 @@ function wordLadder(beginWord, endWord, wordList) {
     for (var i = 0; i < wordList.length; i++) {
       // If the words has at most 1 different letter, enqueue the word and current level
       if (compareWords(currentTuple[0], wordList[i])) {
+        isConnection = true;
         if (wordList[i] === endWord) {
-          console.log(endWord)
           return currentTuple[1] + 1
         } else { 
           queue.push([wordList[i], currentTuple[1] + 1]);
         }
       }
     }
-    console.log(queue)
+    console.log(isConnection)
+    if (!isConnection) return 0;
   }
 }
 
