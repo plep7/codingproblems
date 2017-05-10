@@ -11,7 +11,12 @@
 // tripletSum(x, a) = true.
 
 // The given array contains the elements 1,2, and 5, which add up to 8.
+var x = 15, a = [14, 1, 2, 3, 8, 15, 3];
+var y = 8, b = [1, 1, 2, 5, 3];
 
 function tripletSum(x, a) {
 
 }
+
+console.log(tripletSum(x, a))
+console.log(tripletSum(y, b))
