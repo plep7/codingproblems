@@ -21,17 +21,18 @@ function boxBlur(image) {
 
   // Iterate over each row
   for (var i = 0; i < image.length - 2; i++) {
+    console.log(image.length, image[i].length)
     // Start a new array for each row
     result.push([]);
     // Iterate through the rows
-    for (var j = 0; j < image.length - 2; j++) {
+    for (var j = 0; j < image[i].length - 2; j++) {
       // Reset sum for each row element
       sum = 0;
       // Add three horizontal elements for three rows to the sum
       for (var k = j; k < j + 3; k++) {
         for (var l = i; l < i + 3; l++) {
           sum += image[l][k]
-          console.log(sum)
+          console.log(i, j, image[l][k], sum)
         }
       }
       // Push the sum into the results row
@@ -42,8 +43,8 @@ function boxBlur(image) {
   return result;
 }
 
-var image = [[1, 1, 1], 
-         [1, 7, 1], 
-         [1, 1, 1]]
+var image = [[36,0,18,9], 
+            [27,54,9,0], 
+            [81,63,72,45]]
 
 boxBlur(image)
