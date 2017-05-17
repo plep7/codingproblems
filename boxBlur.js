@@ -6,7 +6,7 @@ Example
 
 For
 
-image = [[1, 1, 1], 
+var image = [[1, 1, 1], 
          [1, 7, 1], 
          [1, 1, 1]]
 the output should be boxBlur(image) = [[1]].
@@ -17,9 +17,33 @@ In the given example all boundary pixels were cropped, and the value of the pixe
 
 function boxBlur(image) {
   // Initialize a results matrix and current sum
-  // Go through the input matrix
-    // Add three horizontal elements for three rows to the sum
-    // Push the sum into the results matrix
-    // Once the end of the horizontal matrix is reached, start a new array
+  var result = [], sum;
 
+  // Iterate over each row
+  for (var i = 0; i < image.length - 2; i++) {
+    // Start a new array for each row
+    result.push([]);
+    // Iterate through the rows
+    for (var j = 0; j < image.length - 2; j++) {
+      // Reset sum for each row element
+      sum = 0;
+      // Add three horizontal elements for three rows to the sum
+      for (var k = j; k < j + 3; k++) {
+        for (var l = i; l < i + 3; l++) {
+          sum += image[l][k]
+          console.log(sum)
+        }
+      }
+      // Push the sum into the results row
+      result[i].push(Math.floor(sum / 9))
+    }
+  }
+  console.log(result)
+  return result;
 }
+
+var image = [[1, 1, 1], 
+         [1, 7, 1], 
+         [1, 1, 1]]
+
+boxBlur(image)
