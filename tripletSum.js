@@ -1,22 +1,31 @@
-// Note: Write a solution with O(n2) time complexity, since this is what you would be asked to do during a real interview.
+var maxProfit = function(prices) {
+    var i,
+        length = prices.length,
+        low,
+        high,
+        max = 0,
+        cur;
+        
+    if (length === 0) {
+        return 0;
+    }
+    low = prices[0];
+    high = low;
+    for (i = 1; i < length; i++) {
+        cur = prices[i];
+        if (cur > high) {
+            high = cur;
+        }else if (cur < low) {
+            //need to reset low and high in order to make sure you need to buy before you sell
+            low = cur;
+            high = cur;
+        }
+        if (high - low > max) {
+            max = high - low;
+        }
+    }
+    console.log(max)
+    return max;
+};
 
-// You have an array a composed of exactly n elements. Given a number x, determine whether or not a contains three elements for which the sum is exactly x.
-
-// Example
-
-// For x = 15 and a = [14, 1, 2, 3, 8, 15, 3], the output should be
-// tripletSum(x, a) = false;
-
-// For x = 8 and a = [1, 1, 2, 5, 3], the output should be
-// tripletSum(x, a) = true.
-
-// The given array contains the elements 1,2, and 5, which add up to 8.
-var x = 15, a = [14, 1, 2, 3, 8, 15, 3];
-var y = 8, b = [1, 1, 2, 5, 3];
-
-function tripletSum(x, a) {
-
-}
-
-console.log(tripletSum(x, a))
-console.log(tripletSum(y, b))
+maxProfit([[100, 180, 260, 310, 40, 535, 695]])
