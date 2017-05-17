@@ -16,5 +16,10 @@ In the given example all boundary pixels were cropped, and the value of the pixe
 
 
 function boxBlur(image) {
+  // Initialize a results matrix and current sum
+  // Go through the input matrix
+    // Add three horizontal elements for three rows to the sum
+    // Push the sum into the results matrix
+    // Once the end of the horizontal matrix is reached, start a new array
 
 }
