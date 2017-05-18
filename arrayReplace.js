@@ -7,12 +7,9 @@
 
 function arrayReplace(inputArray, elemToReplace, substitutionElem) {
   // If the element matches the elemToReplace, substitute it
-  for (var i = 0; i < inputArray.length; i++) {
-    if (inputArray[i] === elemToReplace) inputArray[i] = substitutionElem;
-  }
-  return inputArray;
+  return inputArray.map(element => element === elemToReplace ? substitutionElem : element);
 }
 
 var inputArray = [1, 2, 1]
 
-arrayReplace(inputArray, 1, 3)
+console.log(arrayReplace(inputArray, 1, 3))
