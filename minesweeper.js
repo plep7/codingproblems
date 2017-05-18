@@ -14,5 +14,8 @@
 //                        [1, 1, 1]]       
 
 function minesweeper(matrix) {
+  // Initialize a counter for each square to 0
+  // Check the adjacent squares for mines
+  // If there is a mine in an adjacent square, increment counter
 
 }
