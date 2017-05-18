@@ -15,12 +15,13 @@
 
 function minesweeper(matrix) {
   // Initialize a counter for each square to 0
-  var results, adj;
+  var results, adj, mineCounter;
 
-  results = new Array(matrix.length).fill(new Array(matrix.length).fill(0));
+  results = [];
   console.log(matrix)
   // Visit each square
   for (var i = 0; i < matrix.length; i++) {
+    results.push(new Array(matrix[i].length).fill(0));
     for (var j = 0; j < matrix[i].length; j++) {
       // Reset presence check
       adj = { 
@@ -36,20 +37,29 @@ function minesweeper(matrix) {
       if (matrix[i][j - 1] !== undefined) adj.pCol = true;
       if (matrix[i][j + 1] !== undefined) adj.nCol = true;
 
+      // Check the adjacent squares for mines, if so increment results counter
+      /*Top Mid*/ if (adj.pRow && matrix[i - 1][j]) results[i][j]++;
+      /*Top Lef*/ if (adj.pRow && adj.pCol && matrix[i - 1][j - 1]) results[i][j]++;
+      /*Top Rgt*/ if (adj.pRow && adj.nCol && matrix[i - 1][j + 1]) results[i][j]++;
+      /*Bot Mid*/ if (adj.nRow && matrix[i + 1][j]) results[i][j]++;
+      /*Bot Lef*/ if (adj.nRow && adj.pCol && matrix[i + 1][j - 1]) results[i][j]++;
+      /*Bot Rgt*/ if (adj.nRow && adj.nCol && matrix[i + 1][j + 1]) results[i][j]++;
+      /*Mid Lef*/ if (adj.pCol && matrix[i][j - 1]) results[i][j]++;
+      /*Mid Rgt*/ if (adj.nCol && matrix[i][j + 1]) results[i][j]++;
+        
+      console.log('==============')
       console.log(i, j, adj)
+      results.map(row => {
+        console.log(row)
+      });
     }
   }
-  // Check the adjacent squares for mines
-    // Check if there is a previous row
-      // If so check if there is a previous column
-        // If so check
-  // If there is a mine in an adjacent square, increment counter
-
+  return results;
 }
 
 
-var matrix = [[true, false, false],
-          [false, true, false],
+
+var matrix = [[false, false, false],
           [false, false, false]]
 
 minesweeper(matrix)
