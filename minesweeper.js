@@ -15,7 +15,16 @@
 
 function minesweeper(matrix) {
   // Initialize a counter for each square to 0
+  var result = new Array(matrix.length).fill(new Array(matrix.length).fill(0))
+  console.log(result)
   // Check the adjacent squares for mines
   // If there is a mine in an adjacent square, increment counter
 
 }
+
+
+var matrix = [[true, false, false],
+          [false, true, false],
+          [false, false, false]]
+
+minesweeper(matrix)
