@@ -12,10 +12,17 @@
 // variableName(name) = false.
 
 function variableName(name) {
+  var reg = /^[0-9a-zA-Z_]+$/;
   // Check if the first element is a number
+  if (!Number.isNaN(Number(name[0]))) return false;
     // If so return false
+
+  return reg.test(name)
 
   // Use a regex to determine if the string only contains A-Z 0-9 and _
   // If so return true, if not return false
 
 }
+
+console.log(variableName("as-d"))
+console.log(variableName("var_1__Int"))
