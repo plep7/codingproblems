@@ -13,7 +13,6 @@
 
 function variableName(name) {
   return Number.isNaN(Number(name[0])) ? /^[0-9a-zA-Z_]+$/.test(name) : false ;
-
 }
 
 console.log(variableName("as-d"))
