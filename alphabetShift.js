@@ -6,5 +6,7 @@
 // alphabeticShift(inputString) = "dsbaz".
 
 function alphabeticShift(inputString) {
-
+  // Iterate through the string
+    // Increment each charCodes
+    // If the letter is Z change it to A
 }
