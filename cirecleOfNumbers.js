@@ -9,7 +9,10 @@
 
 function circleOfNumbers(n, firstNumber) {
   // Set the difference equal to n divided by 2
+  var difference = n / 2;
   // If the first number is larger than n, subtract the difference
+  return difference > firstNumber ? firstNumber + difference : firstNumber - difference;
   // Else add the difference
-
 }
+
+console.log(circleOfNumbers(10, 5))
