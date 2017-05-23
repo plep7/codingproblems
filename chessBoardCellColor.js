@@ -6,14 +6,17 @@
 // chessBoardCellColor(cell1, cell2) = true.
 
 function chessBoardCellColor(cell1, cell2) {
-  // Determine the cell value
-  // Check the modulus of both sums
   // return boolean of value comparison
+  return cellValue(cell1) % 2 === cellValue(cell2) % 2;
 
 }
 
 function cellValue(cell) {
-  // Split the string string
   // Determine the charCode value of the letter
+  var rowValue = cell.charCodeAt(0);
+  var colValue = Number(cell[1]);
   // Sum the string values
+  return rowValue + colValue;
 }
+
+console.log(chessBoardCellColor('B3', 'A4'))
