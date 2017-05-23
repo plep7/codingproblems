@@ -6,5 +6,10 @@
 // chessBoardCellColor(cell1, cell2) = true.
 
 function chessBoardCellColor(cell1, cell2) {
+  // Split each string
+  // Determine the charCode value of the letter
+  // Sum the string values
+  // Check the modulus of both sums
+  // return boolean of value comparison
 
 }
