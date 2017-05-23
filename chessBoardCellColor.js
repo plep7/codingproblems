@@ -6,17 +6,12 @@
 // chessBoardCellColor(cell1, cell2) = true.
 
 function chessBoardCellColor(cell1, cell2) {
-  // return boolean of value comparison
   return cellValue(cell1) % 2 === cellValue(cell2) % 2;
 
 }
 
 function cellValue(cell) {
-  // Determine the charCode value of the letter
-  var rowValue = cell.charCodeAt(0);
-  var colValue = Number(cell[1]);
-  // Sum the string values
-  return rowValue + colValue;
+  return cell.charCodeAt(0) + Number(cell[1]);
 }
 
 console.log(chessBoardCellColor('B3', 'A4'))
