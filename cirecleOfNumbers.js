@@ -6,3 +6,10 @@
 
 // For n = 10 and firstNumber = 2, the output should be
 // circleOfNumbers(n, firstNumber) = 7.
+
+function circleOfNumbers(n, firstNumber) {
+  // Set the difference equal to n divided by 2
+  // If the first number is larger than n, subtract the difference
+  // Else add the difference
+
+}
