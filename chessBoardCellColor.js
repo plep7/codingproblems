@@ -9,4 +9,4 @@ var chessBoardCellColor = (cell1, cell2) => cellValue(cell1) % 2 === cellValue(c
 
 var cellValue = cell => cell.charCodeAt(0) + Number(cell[1]);
 
-console.log(chessBoardCellColor('B3', 'A4'))
+console.log(chessBoardCellColor('B2', 'A4'))
