@@ -16,7 +16,7 @@ function alphabeticShift(inputString) {
     inputString[i] === 'z' ? outputString += 'a' : outputString += nextLetter;
   }
     // If the letter is Z change it to A
-  return outputString
+  return outputString;
 }
 
 console.log(alphabeticShift('crazy'))
