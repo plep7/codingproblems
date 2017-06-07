@@ -15,7 +15,15 @@
 
 function depositProfit(deposit, rate, threshold) {
   // Declare amount and years
-  // While amount is less than threshold multiply by rate
-  // Return years
+  var years = 0;
 
+  // While amount is less than threshold multiply by rate
+  while (deposit < threshold) {
+    deposit *= (rate / 100 + 1)
+    years++;
+  }
+  // Return years
+  return years;
 }
+
+console.log(depositProfit(100, 20, 170))
