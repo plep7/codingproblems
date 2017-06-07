@@ -14,5 +14,8 @@
 // Thus, it will take 3 years for your balance to pass the threshold, which is the answer.
 
 function depositProfit(deposit, rate, threshold) {
+  // Declare amount and years
+  // While amount is less than threshold multiply by rate
+  // Return years
 
 }
