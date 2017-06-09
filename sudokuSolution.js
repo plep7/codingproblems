@@ -32,19 +32,10 @@
 // the output should be
 // sudoku2(grid) = false.
 
-grid = [['.', '.', '.', '1', '4', '.', '.', '2', '.'],
-        ['.', '.', '6', '.', '.', '.', '.', '.', '.'],
-        ['.', '.', '.', '.', '.', '.', '.', '.', '.'],
-        ['.', '.', '1', '.', '.', '.', '.', '.', '.'],
-        ['.', '6', '7', '.', '.', '.', '.', '.', '9'],
-        ['.', '.', '.', '.', '.', '.', '8', '1', '.'],
-        ['.', '3', '.', '.', '.', '.', '.', '.', '6'],
-        ['.', '.', '.', '.', '.', '7', '.', '.', '.'],
-        ['.', '.', '.', '5', '.', '.', '.', '7', '.']]
 
 function sudoku2(grid) {
   // Initialize duplicate object to keep track of numbers seen
-  var duplicateTracker, row, col, element;
+  var duplicateTracker, row, col, element, rowLimit, colLimit;
   // Check rows for duplicates
   // Iterate over each row
   for (var i = 0; i < grid.length; i++) {
@@ -68,16 +59,29 @@ function sudoku2(grid) {
     // Iterate over each row
     for (i = 0; i < grid.length; i++) {
       element = grid[i][j];
-      console.log(i, element)
       // If the element exists and is not a period return false
       if (duplicateTracker[element] && element !== '.') return false;
       if (!duplicateTracker[element]) duplicateTracker[element] = true;
     }
-    console.log(duplicateTracker)
     i = 0;
   }
   // Check each 3x3 block for duplicates
-    // Return false if a duplicate is found
+  // Iterate through each block
+  for (var i = 0; i < grid.length; i += 3) {
+    rowLimit = i + 3;
+    for (var j = 0; j < grid[i].length; j += 3) {
+      colLimit = j + 3;
+      duplicateTracker = {};
+      for (var k = i; k < rowLimit; k++) {
+        for (var m = j; m < colLimit; m++) {
+          element = grid[k][m];
+          // Return false if a duplicate is found
+          if (duplicateTracker[element] && element !== '.') return false;
+          if (!duplicateTracker[element]) duplicateTracker[element] = true;
+        }
+      }
+    }
+  }
   // Return true
   return true;
 }
