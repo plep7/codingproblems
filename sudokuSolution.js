@@ -43,5 +43,19 @@ grid = [['.', '.', '.', '1', '4', '.', '.', '2', '.'],
         ['.', '.', '.', '5', '.', '.', '.', '7', '.']]
 
 function sudoku2(grid) {
-
+  // Initialize duplicate object to keep track of numbers seen
+  // Check rows for duplicates
+    // Iterate over each row
+      // Reinitialize duplicate object
+      // Iterate over each element
+      // If the element exists and is not a period, return false
+  // Check columns for duplicates
+    // Iterate over each element element
+      // Reinitialize duplicate object
+      // Iterate over each row
+      // Iff the element exists and is not a period return false
+    // Return false if a duplicate is found
+  // Check each 3x3 block for duplicates
+    // Return false if a duplicate is found
+  // Return true
 }
