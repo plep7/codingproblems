@@ -10,5 +10,6 @@
 // The array of squared integers from array is: [36, 16, 1, 4, 9, 25]. When sorted, it becomes: [1, 4, 9, 16, 25, 36].
 
 function sortedSquaredArray(array) {
-
+  // Iterate through the array and square each value
+  // Return the sorted squared array
 }
