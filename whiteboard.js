@@ -1,11 +1,12 @@
-function minNum(A, K, P) {
-  var equal = P / (K - A);
-  var days = Math.floor(equal + 1)
-  // asha = A * days + P;
-  // kelly = K * days;
-  // (K - A) * days = P
-  // days = P / (K - A)
-  console.log(days)
+function splitEvensAndOdds(arr) {
+  var evenArr = [], oddArr = [];
+
+  arr.forEach(element => {
+    element % 2 === 0 ? evenArr.push(element) : oddArr.push(element);
+  })
+  console.log(evenArr)
+  console.log(oddArr)
 }
 
-minNum(4, 5, 1)
+var testArray = [1, 2, 5, 3, 16, 45, 78, 90, 13, 52, 88, 23]
+splitEvensAndOdds(testArray)
