@@ -65,6 +65,7 @@ function sudoku2(grid) {
     }
     i = 0;
   }
+  
   // Check each 3x3 block for duplicates
   // Iterate through each block
   for (var i = 0; i < grid.length; i += 3) {
